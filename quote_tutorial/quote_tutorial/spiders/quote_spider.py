@@ -21,7 +21,7 @@ class quote_spider(scrapy.Spider):
             item['author']=author
             item['tags']=tags
             yield item
-
+        print('*********************************')
         next_page='http://quotes.toscrape.com/page/'+str(quote_spider.page_number)+'/' 
         if quote_spider.page_number<11:
             yield response.follow(next_page,callback=self.parse)
